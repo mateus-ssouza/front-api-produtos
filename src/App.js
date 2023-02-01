@@ -21,7 +21,7 @@ function App() {
 
   // useEffect
   useEffect(() => {
-    fetch("https://api-v1-produtos.up.railway.app/produtos/listar")
+    fetch("http://localhost:8080/produtos/listar")
     .then(retorno => retorno.json())
     .then(retorno_convertido => setProdutos(retorno_convertido));
   }, []);
@@ -33,7 +33,7 @@ function App() {
 
   // Cadastrar produto
   const cadastrar = () => {
-    fetch('https://api-v1-produtos.up.railway.app/produtos/cadastrar', {
+    fetch('http://localhost:8080/produtos/cadastrar', {
       method:'post',
       body:JSON.stringify(objProduto),
       headers:{
@@ -56,7 +56,7 @@ function App() {
 
   // Alterar produto
   const alterar = () => {
-    fetch('https://api-v1-produtos.up.railway.app/produtos/alterar', {
+    fetch('http://localhost:8080/produtos/alterar', {
       method:'put',
       body:JSON.stringify(objProduto),
       headers:{
@@ -95,7 +95,7 @@ function App() {
 
   // Remover produto
   const remover = () => {
-    fetch('https://api-v1-produtos.up.railway.app/produtos/remover/' + objProduto.id, {
+    fetch('http://localhost:8080/produtos/remover/' + objProduto.id, {
       method:'delete',
       headers:{
         'Content-type':'application/json',
